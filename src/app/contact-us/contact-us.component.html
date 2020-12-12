@@ -1,0 +1,59 @@
+<style>
+input.ng-invalid.ng-touched{ 
+  border: 1px solid firebrick;
+}
+label{
+font-weight: bold;
+font-size: auto ;
+}
+</style>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()"  style="border:1px solid;padding: 15px;">
+    <label style="font-weight: 900;font-size: 133%;">Contact-us</label>
+    <div class="form-group">
+        <label for="exampleInputfirstname">First Name</label>
+        <input type="text" 
+        class="form-control" 
+        formControlName="firstname" 
+        autofocus
+        placeholder="First Name" />
+        <span class="help-block" 
+        *ngIf="!contactForm.get('firstname').valid && contactForm.get('firstname').touched"
+        > Please Enter a Valid Name</span>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputlastname">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+        <span class="help-block" 
+        *ngIf="!contactForm.get('lastname').valid && contactForm.get('lastname').touched"
+        > Please Enter a Valid Name</span>
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleInputphonenumber">Phone Number</label>
+        <input type="number" class="form-control" formControlName="phonenumber" placeholder="Phone Number">
+        <span class="help-block" 
+        *ngIf="!contactForm.get('phonenumber').valid && contactForm.get('phonenumber').touched"
+        >Invalid Mobile Number!!!</span>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputemail">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
+        <span class="help-block" 
+        *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched"
+        > Please Enter a Valid Email!</span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputmessage">Message</label>
+        <textarea type="text" class="form-control" formControlName="message" placeholder="Message"></textarea>
+        <span class="help-block" 
+        *ngIf="!contactForm.get('message').valid && contactForm.get('message').touched"
+        > Please Enter a Valid Name</span>
+
+    </div>
+    
+    <button type="submit" [disabled]="!contactForm.valid" class="btn btn-primary">Submit </button>
+
+</form>

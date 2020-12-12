@@ -1,0 +1,38 @@
+<div style="margin-right: 150px; border:0.5px thin;">
+    <form class="form-inline" [formGroup]="search" (ngSubmit)="onSearch()">
+        <label for="search">Filter.</label>
+            <select id="value"  formControlName="value" class="form-control">
+                <option value="M" >Male</option>
+                <option value="F">Female</option>
+                <option value="N">No Preference</option>
+                <option value="A">All</option>
+            </select>
+        <button type="button" class="btn btn-success btn-lg" type="submit" click="onSearch()">Check</button>
+    </form>
+
+<table class="table table-bordered " >
+    <thead class="black white-text">
+      <tr>
+          <th>Sr No.</th>
+       <th>First Name</th>
+       <th>Last name</th>
+       <th>City</th>
+       <th>Package</th>
+       <th>Trainer Preference</th>
+       <th>Phone</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let ml of filterapp; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{ml.firstName}}</td>
+          <td>{{ml.lastName}}</td>
+          <td>{{ml.city}}</td>
+          <td>{{ml.packages}}</td>
+          <td>{{ml.trainerpreference}}</td>
+          <td>{{ml.phone}}</td>
+      </tr>
+    </tbody>
+</table>
+</div>
